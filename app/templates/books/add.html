@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %}Add Book{% endblock %} {% block
+content %}
+<div class="edit-book-header">
+  <h1>Add New Book</h1>
+</div>
+<form class="edit-book-group" method="post">
+  <div class="form-group">
+    <label>Title:</label>
+    <input type="text" name="title" required />
+  </div>
+  <div class="form-group">
+    <label>Author:</label>
+    <input type="text" name="author" required />
+  </div>
+  <div class="form-group">
+    <label>ISBN:</label>
+    <input
+      type="text"
+      name="isbn"
+      pattern="[0-9]{13}"
+      title="Please enter a valid 13-digit ISBN"
+      maxlength="13"
+      placeholder="Enter 13-digit ISBN"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label>Genre:</label>
+    <select name="genre" required>
+      <option value="">Select genre</option>
+      <option value="Fiction">Fiction</option>
+      <option value="Non-Fiction">Non-Fiction</option>
+      <option value="Science Fiction">Science Fiction</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Mystery">Mystery</option>
+      <option value="Thriller">Thriller</option>
+      <option value="Romance">Romance</option>
+      <option value="Horror">Horror</option>
+      <option value="Biography">Biography</option>
+      <option value="History">History</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Year:</label>
+    <input type="number" name="year" required />
+  </div>
+  <button type="submit" class="btn">Add Book</button>
+</form>
+{% endblock %}

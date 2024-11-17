@@ -1,0 +1,50 @@
+<!-- app/templates/auth/register.html -->
+{% extends "base.html" %} {% block title %}Register{% endblock %} {% block
+content %}
+<div class="container">
+  <h1>Register</h1>
+  <div class="auth-form">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="flash-messages">
+      {% for message in messages %}
+      <div class="flash-message">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %} {% endwith %}
+
+    <div class="password-requirements">
+      <h4>Password Requirements:</h4>
+      <ul>
+        <li>Minimum 8 characters</li>
+        <li>At least one uppercase letter (A-Z)</li>
+        <li>At least one lowercase letter (a-z)</li>
+        <li>At least one number (0-9)</li>
+        <li>At least one special character (!@#$%^&*)</li>
+      </ul>
+    </div>
+
+    <form method="post">
+      <div class="form-group">
+        <label>Username:</label>
+        <input type="text" name="username" required />
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" name="password" required />
+      </div>
+      <div class="form-group">
+        <label>Confirm Password:</label>
+        <input type="password" name="confirm_password" required />
+      </div>
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <p class="auth-links">
+      Already have an account? <a href="{{ url_for('login') }}">Login here</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
