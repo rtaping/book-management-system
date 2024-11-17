@@ -13,7 +13,7 @@ class Book(db.Model):
     
     # Optional fields
     year = db.Column(db.Integer)
-    isbn = db.Column(db.String(13), unique=True)  # Standard ISBN-13 length
+    isbn = db.Column(db.String(13), unique=True, nullable=True) # Standard ISBN-13 length
     genre = db.Column(db.String(50))
     
     # Metadata

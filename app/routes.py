@@ -156,18 +156,28 @@ def books_list():
 @login_required
 def add_book():
     if request.method == 'POST':
-        # Create new book
-        book = Book(
-            title=request.form['title'],
-            author=request.form['author'],
-            year=request.form['year'],
-            isbn=request.form['isbn'],
-            genre=request.form['genre'],
-            user_id=current_user.id
-        )
-        db.session.add(book)
-        db.session.commit()
-        return redirect(url_for('books_list'))
+        try:
+            # Check for duplicate ISBN if provided
+            isbn = request.form.get('isbn')
+            if isbn and Book.query.filter_by(isbn=isbn).first():
+                flash('A book with this ISBN already exists')
+                return redirect(url_for('add_book')), 400
+
+            book = Book(
+                title=request.form['title'],
+                author=request.form['author'],
+                year=request.form['year'],
+                isbn=isbn,
+                genre=request.form['genre'],
+                user_id=current_user.id
+            )
+            db.session.add(book)
+            db.session.commit()
+            return redirect(url_for('books_list'))
+        except Exception as e:
+            db.session.rollback()
+            flash('Error adding book')
+            return redirect(url_for('add_book')), 400
     return render_template('books/add.html')
 
 @app.route('/books/edit/<int:id>', methods=['GET', 'POST'])
