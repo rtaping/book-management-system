@@ -1,4 +1,5 @@
 # tests/test_api_crud.py
+# tested with: "pytest tests/test_crud_api.py -v > logs/pytest.log"
 
 import pytest
 from app import app, db
