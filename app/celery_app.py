@@ -1,4 +1,6 @@
 # app/celery_app.py - Celery task queue configuration and initialization
+# Celery worker may need administrative privileges in order to work correctly
+# But I have not encountered that issue as seen in ../logs/celery_worker.log
 
 # Third-party imports
 from celery import Celery  # Distributed task queue

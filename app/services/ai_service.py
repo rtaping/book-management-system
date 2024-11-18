@@ -1,4 +1,5 @@
 # app/services/ai_service.py
+# Error 429 will show up upon using AI Book Recommendation Service, since I have not paid for tokens to usae OpenAI services using my API key.
 
 # Standard library imports
 import os  # Operating system interface
@@ -7,17 +8,13 @@ from typing import Dict, List  # Type hints
 
 # Third party imports
 from openai import OpenAI, OpenAIError  # OpenAI API client
-from dotenv import load_dotenv  # Environment variable loading
 
 class AIRecommendationService:
     """Service for getting AI-powered book recommendations"""
     
     def __init__(self):
-        # Load environment variables
-        load_dotenv()
-        
         # Get API key from environment
-        self.api_key = os.getenv('OPENAI_API_KEY')
+        self.api_key = os.environ['OPENAI_API_KEY']
         if not self.api_key:
             raise ValueError("OpenAI API key not found in environment variables")
             

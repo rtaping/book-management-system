@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-8.3.3, pluggy-1.5.0 -- C:\Users\Admin\Desktop\python-dev\book-management-system\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Admin\Desktop\python-dev\book-management-system
+plugins: anyio-4.6.2.post1
+collecting ... collected 4 items
+
+tests/test_crud_api.py::test_create_book PASSED                          [ 25%]
+tests/test_crud_api.py::test_read_books PASSED                           [ 50%]
+tests/test_crud_api.py::test_update_book PASSED                          [ 75%]
+tests/test_crud_api.py::test_delete_book PASSED                          [100%]
+
+============================== warnings summary ===============================
+.venv\Lib\site-packages\flask_limiter\extension.py:333
+  C:\Users\Admin\Desktop\python-dev\book-management-system\.venv\Lib\site-packages\flask_limiter\extension.py:333: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+    warnings.warn(
+
+.venv\Lib\site-packages\flask_restx\api.py:19
+.venv\Lib\site-packages\flask_restx\api.py:19
+  C:\Users\Admin\Desktop\python-dev\book-management-system\.venv\Lib\site-packages\flask_restx\api.py:19: DeprecationWarning: jsonschema.RefResolver is deprecated as of v4.18.0, in favor of the https://github.com/python-jsonschema/referencing library, which provides more compliant referencing behavior as well as more flexible APIs for customization. A future release will remove RefResolver. Please file a feature request (on referencing) if you are missing an API for the kind of customization you need.
+    from jsonschema import RefResolver
+
+.venv\Lib\site-packages\flask_restx\api.py:273
+  C:\Users\Admin\Desktop\python-dev\book-management-system\.venv\Lib\site-packages\flask_restx\api.py:273: DeprecationWarning: 'ERROR_404_HELP' config setting is deprecated and will be removed in the future. Use 'RESTX_ERROR_404_HELP' instead.
+    warnings.warn(
+
+tests/test_crud_api.py::test_update_book
+tests/test_crud_api.py::test_delete_book
+  C:\Users\Admin\Desktop\python-dev\book-management-system\.venv\Lib\site-packages\flask_sqlalchemy\query.py:30: LegacyAPIWarning: The Query.get() method is considered legacy as of the 1.x series of SQLAlchemy and becomes a legacy construct in 2.0. The method is now available as Session.get() (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    rv = self.get(ident)
+
+tests/test_crud_api.py::test_delete_book
+  C:\Users\Admin\Desktop\python-dev\book-management-system\tests\test_crud_api.py:144: LegacyAPIWarning: The Query.get() method is considered legacy as of the 1.x series of SQLAlchemy and becomes a legacy construct in 2.0. The method is now available as Session.get() (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    deleted_book = Book.query.get(book_id)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 4 passed, 7 warnings in 3.57s ========================

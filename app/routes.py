@@ -22,6 +22,7 @@ from app.services.ai_service import AIRecommendationService  # AI recommendation
 books = []  # Temporary storage for books
 
 # Service initialization
+# This limiter uses in-memory storage for rate limiting only to demonstrate the concept.
 limiter = Limiter(  # Rate limiter setup
     app=app,
     key_func=get_remote_address,

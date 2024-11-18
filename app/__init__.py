@@ -14,6 +14,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Generate secure random key
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'  # Database location
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable expensive tracking
+app.config['ERROR_404_HELP'] = False
+app.config['ERROR_401_HELP'] = False
+app.url_map.strict_slashes = False
 
 # Celery task queue configuration
 app.config.update(

@@ -1,0 +1,38 @@
+(.venv) PS C:\Users\Admin\Desktop\python-dev\book-management-system> celery -A app.celery worker --pool=solo -l info
+C:\Users\Admin\Desktop\python-dev\book-management-system\.venv\Lib\site-packages\flask_limiter\extension.py:333: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+ 
+ -------------- celery@DESKTOP-PGTC3QV v5.4.0 (opalescent)
+--- ***** -----
+-- ******* ---- Windows-10-10.0.19045-SP0 2024-11-18 10:42:06
+- *** --- * ---
+- ** ---------- [config]
+- ** ---------- .> app:         app:0x2a8d2bc4590
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     redis://localhost:6379/0
+- *** --- * --- .> concurrency: 6 (solo)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** -----
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+
+
+[tasks]
+  . app.tasks.send_contact_email
+  . app.tasks.send_registration_email
+
+[2024-11-18 10:42:07,029: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2024-11-18 10:42:07,031: INFO/MainProcess] mingle: searching for neighbors
+[2024-11-18 10:42:08,039: INFO/MainProcess] mingle: all alone
+[2024-11-18 10:42:08,049: INFO/MainProcess] celery@DESKTOP-PGTC3QV ready.
+[2024-11-18 11:01:03,402: INFO/MainProcess] Task app.tasks.send_registration_email[1ec78ce6-471b-4580-b197-67511518d71a] received
+[2024-11-18 11:01:08,403: WARNING/MainProcess] Sending registration email to tapingryandave@gmail.com
+[2024-11-18 11:01:08,404: WARNING/MainProcess] Subject: Welcome to Book Management System
+[2024-11-18 11:01:08,404: WARNING/MainProcess] Dear perfblack,
+
+Thank you for registering!
+[2024-11-18 11:01:08,406: INFO/MainProcess] Task app.tasks.send_registration_email[1ec78ce6-471b-4580-b197-67511518d71a] succeeded in 5.003391500000362s: True
+[2024-11-18 11:02:28,727: INFO/MainProcess] Task app.tasks.send_contact_email[c271ab4b-9a00-4834-a029-d6a6e0dea0c8] received
+[2024-11-18 11:02:28,728: WARNING/MainProcess] Sending contact email from Ryan (tapingryandave@gmail.com)
+[2024-11-18 11:02:28,728: WARNING/MainProcess] Message: test message in celery
+[2024-11-18 11:02:28,744: INFO/MainProcess] Task app.tasks.send_contact_email[c271ab4b-9a00-4834-a029-d6a6e0dea0c8] succeeded in 0.016701000000466593s: True

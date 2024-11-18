@@ -1,11 +1,14 @@
 :root {
-  --primary: #2563eb;
+  --primary: #8b4513;
+  --primary-dark: #694019;
   --secondary: #475569;
-  --background: #f8fafc;
-  --surface: #ffffff;
-  --text: #1e293b;
-  --border: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --background: #f5f5dc;
+  --surface: #fffff0;
+  --text: #2c1810;
+  --text-light: #5c4033;
+  --secondary: #704214;
+  --border: #d2b48c;
+  --shadow: 0 4px 6px -1px rgba(139, 69, 19, 0.1);
 }
 
 body {
@@ -18,7 +21,7 @@ body {
 }
 
 nav {
-  background: linear-gradient(to right, var(--primary), #1d4ed8);
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
   padding: 1em 2em;
   display: flex;
   justify-content: space-between;
@@ -62,11 +65,12 @@ nav a:hover {
 
 .book {
   background: var(--surface);
-  border-radius: 12px;
-  padding: 1.5rem;
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1),
+    -1px -1px 3px rgba(255, 255, 255, 0.7);
+  transition: transform 0.2s;
+  padding: 0 0 2rem 1rem;
 }
 
 .book:hover {
@@ -77,9 +81,10 @@ nav a:hover {
 .btn {
   padding: 0.75rem 1.5rem;
   background: var(--primary);
-  color: white;
+  color: var(--surface);
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s;
@@ -145,13 +150,14 @@ nav a:hover {
   border: 2px solid var(--border);
   border-radius: 8px;
   transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--text);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
 }
 
 .flash-message {
@@ -162,6 +168,7 @@ nav a:hover {
   border-left: 4px solid var(--primary);
   box-shadow: var(--shadow);
   animation: slideIn 0.3s ease-out;
+  color: var(--text);
 }
 
 @keyframes slideIn {

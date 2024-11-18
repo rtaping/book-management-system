@@ -11,4 +11,5 @@ if __name__ == '__main__':
         db.create_all()  # Create all defined models
     
     # Start Flask development server
-    app.run(debug=True)
+    # Has been set to debug=False to test system as a regular user
+    app.run(debug=False)
